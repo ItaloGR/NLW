@@ -3,6 +3,9 @@ const express = require('express')
 const server = express()
 const {pageLanding, pageStudy, pageGiveClasses, saveClasses} = require('./pages')
 
+const porta = process.env.PORT || 8080;
+//app.listen(porta);
+
 //Configurar nunjucks (template engine)
 const nunjucks = require('nunjucks')
 nunjucks.configure('src/view', {
@@ -20,4 +23,4 @@ server
 .get('/study', pageStudy)
 .get('/give-classes', pageGiveClasses)
 .post('/save-classes', saveClasses)
-.listen(5500)
+.listen(porta)
